@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(IPv4) Subnet Calculator & Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Kalkulator Konversi & Analyzer IP Address</h1>
+        <p>Pengalamatan IP Address IPv4 dan Kalkulator Subnetting</p>
+        <nav>
+            <button type="button" id="btn-beranda">Beranda</button>
+            <button type="button" id="btn-teori">Teori</button>
+            <button type="button" id="btn-konverter">Konverter</button>
+        </nav>
+    </header>
+
+    <article>
+        <!-- beranda -->
+        <section id="beranda">
+            <h2>1. Pengertian IP Address</h2>
+            <p>IP Address adalah sebuah pengalamatan yang berfungsi untuk menghubungkan komputer dalam suatu jaringan.</p>
+
+            <h2>2. Pembagian Kelas IP Address</h2>
+            <ul>
+                <li>
+                    <strong>Kelas A = (0 - 127) 1 - 126</strong>
+                    <ul>
+                        <li><code>0</code> : IP Network (IP Batasan yang diberikan oleh router)</li>
+                        <li><code>127</code> : IP Loopback (IP yang tertanam dalam perangkat / IP yang mengenali dirinya sendiri)</li>
+                    </ul>
+                </li>
+                <li><strong>Kelas B = 128 - 191</strong></li>
+                <li><strong>Kelas C = 192 - 223</strong></li>
+            </ul>
+        </section>
+
+        <!-- teori -->
+        <section id="teori">
+            <h2>Ciri - Ciri Kelas IP Address</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Kelas A</th>
+                        <th>Kelas B</th>
+                        <th>Kelas C</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bit Pertama</td>
+                        <td>0xxxxxxx</td>
+                        <td>10xxxxxx</td>
+                        <td>110xxxxx</td>
+                    </tr>
+                    <tr>
+                        <td>Oktet Pertama</td>
+                        <td>(0 - 127) 1 - 126</td>
+                        <td>128 - 191</td>
+                        <td>192 - 223</td>
+                    </tr>
+                    <tr>
+                        <td>Panjang Network ID</td>
+                        <td>1 oktet (8 - bit)</td>
+                        <td>2 oktet (16 - bit)</td>
+                        <td>3 oktet (24 - bit)</td>
+                    </tr>
+                    <tr>
+                        <td>Panjang Host ID</td>
+                        <td>3 oktet (24 - bit)</td>
+                        <td>2 oktet (16 - bit)</td>
+                        <td>1 oktet (8 - bit)</td>
+                    </tr>
+                    <tr>
+                        <td>IP Awal</td>
+                        <td>1.0.0.1</td>
+                        <td>128.0.0.1</td>
+                        <td>192.0.0.1</td>
+                    </tr>
+                    <tr>
+                        <td>IP Akhir</td>
+                        <td>126.255.255.254</td>
+                        <td>191.255.255.254</td>
+                        <td>223.255.255.254</td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Network</td>
+                        <td>128</td>
+                        <td>16.384</td>
+                        <td>2.097.152</td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Host Keseluruhan</td>
+                        <td>16.777.216</td>
+                        <td>65.536</td>
+                        <td>256</td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Host Valid</td>
+                        <td>16.777.214</td>
+                        <td>65.534</td>
+                        <td>254</td>
+                    </tr>
+                    <tr>
+                        <td>Netmask</td>
+                        <td>255.0.0.0</td>
+                        <td>255.255.0.0</td>
+                        <td>255.255.255.0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Tabel Subnetting Kelas C</h2>
+            <p><u>255</u> . <u>255</u> . <u>255</u> . <u>0</u> .</p>
+            <p>11111111 11111111 11111111 00000000</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>Netmask</th>
+                        <th>Jumlah Network</th>
+                        <th>Jumlah Host Keseluruhan</th>
+                        <th>Jumlah Host Valid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/24</td>
+                        <td>255.255.255.0</td>
+                        <td>1</td>
+                        <td>256</td>
+                        <td>254</td>
+                    </tr>
+                    <tr>
+                        <td>/25</td>
+                        <td>255.255.255.128</td>
+                        <td>2</td>
+                        <td>128</td>
+                        <td>126</td>
+                    </tr>
+                    <tr>
+                        <td>/26</td>
+                        <td>255.255.255.192</td>
+                        <td>4</td>
+                        <td>64</td>
+                        <td>62</td>
+                    </tr>
+                    <tr>
+                        <td>/27</td>
+                        <td>255.255.255.224</td>
+                        <td>8</td>
+                        <td>32</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>/28</td>
+                        <td>255.255.255.240</td>
+                        <td>16</td>
+                        <td>16</td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>/29</td>
+                        <td>255.255.255.248</td>
+                        <td>32</td>
+                        <td>8</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>/30</td>
+                        <td>255.255.255.252</td>
+                        <td>64</td>
+                        <td>4</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>/31</td>
+                        <td>255.255.255.254</td>
+                        <td>128</td>
+                        <td>2</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>/32</td>
+                        <td>255.255.255.255</td>
+                        <td>256</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- konverter -->
+        <section id="konverter">
+            <h2>Calculator IP Subnet</h2>
+            <form id="calculator-form">
+                <div>
+                    <label>Network Class:</label>
+                    <input type="radio" id="class-any" name="network_class" value="Any">
+                    <label for="class-any">Any</label>
+
+                    <input type="radio" id="class-a" name="network_class" value="A">
+                    <label for="class-a">A</label>
+
+                    <input type="radio" id="class-b" name="network_class" value="B">
+                    <label for="class-b">B</label>
+
+                    <input type="radio" id="class-c" name="network_class" value="C" checked>
+                    <label for="class-c">C</label>
+                </div>
+
+                <div>
+                    <label for="subnet-select">Subnet:</label>
+                    <select id="subnet-select" name="subnet">
+                        <option value="32">255.255.255.255 /32</option>
+                        <option value="31">255.255.255.254 /31</option>
+                        <option value="30">255.255.255.252 /30</option>
+                        <option value="29">255.255.255.248 /29</option>
+                        <option value="28">255.255.255.240 /28</option>
+                        <option value="27">255.255.255.224 /27</option>
+                        <option value="26">255.255.255.192 /26</option>
+                        <option value="25">255.255.255.128 /25</option>
+                        <option value="24" selected>255.255.255.0 /24</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="ip-address">IP Address:</label>
+                    <input type="text" id="ip-address" name="ip_address" placeholder="192.168.1.10">
+                </div>
+
+                <div>
+                    <button type="button" id="btn-calculate">Calculate</button>
+                    <button type="reset" id="btn-clear">Clear</button>
+                </div>
+            </form>
+
+            <!-- tabel hasil(Result) -->
+            <div id="result-container">
+                <h3>Calculation Results</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>IP Address:</td>
+                            <td id="res-ip">-</td>
+                        </tr>
+                        <tr>
+                            <td>Network Address:</td>
+                            <td id="res-network">-</td>
+                        </tr>
+                        <tr>
+                            <td>Usable Host IP Range:</td>
+                            <td id="res-range">-</td>
+                        </tr>
+                        <tr>
+                            <td>Broadcast Address:</td>
+                            <td id="res-broadcast">-</td>
+                        </tr>
+                        <tr>
+                            <td>Total Number of Hosts:</td>
+                            <td id="res-total-hosts">-</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Usable Hosts:</td>
+                            <td id="res-usable-hosts">-</td>
+                        </tr>
+                        <tr>
+                            <td>Subnet Mask:</td>
+                            <td id="res-netmask">-</td>
+                        </tr>
+                        <tr>
+                            <td>Wildcard Mask:</td>
+                            <td id="res-wildcard">-</td>
+                        </tr>
+                        <tr>
+                            <td>Binary Subnet Mask:</td>
+                            <td id="res-binary-netmask">-</td>
+                        </tr>
+                        <tr>
+                            <td>IP Class:</td>
+                            <td id="res-class">-</td>
+                        </tr>
+                        <tr>
+                            <td>CIDR Notation:</td>
+                            <td id="res-cidr">-</td>
+                        </tr>
+                        <tr>
+                            <td>IP Type:</td>
+                            <td id="res-type">-</td>
+                        </tr>
+                        <tr>
+                            <td>Short:</td>
+                            <td id="res-short">-</td>
+                        </tr>
+                        <tr>
+                            <td>Binary ID:</td>
+                            <td id="res-binary-id">-</td>
+                        </tr>
+                        <tr>
+                            <td>Integer ID:</td>
+                            <td id="res-integer-id">-</td>
+                        </tr>
+                        <tr>
+                            <td>Hex ID:</td>
+                            <td id="res-hex-id">-</td>
+                        </tr>
+                        <tr>
+                            <td>in-addr.arpa:</td>
+                            <td id="res-arpa">-</td>
+                        </tr>
+                        <tr>
+                            <td>IPv4 Mapped Address:</td>
+                            <td id="res-ipv4-mapped">-</td>
+                        </tr>
+                        <tr>
+                            <td>6to4 Prefix:</td>
+                            <td id="res-6to4">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </article>
+
+    <footer>
+        <p>&copy; 2026</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
