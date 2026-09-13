@@ -13,8 +13,13 @@
     --radius-button: 8px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
+    scroll-margin-top: 60px;
 }
 
 body{
@@ -25,11 +30,33 @@ body{
     font-family: "Fira code", monospace;
     background-color: var(--black);
     color: var(--white);
-
 }
 
 header {
     text-align: center;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--black);
+    margin-bottom: 20px;
+
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.navbar a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 20px;
 }
 
 #containerUtama {
@@ -340,7 +367,7 @@ header {
 
 footer {
     margin: 0 0;
-    background-color: var(--blackp);
+    background-color: var(--black);
     text-align: center;
     padding-top: 5px;
     align-content: center;
