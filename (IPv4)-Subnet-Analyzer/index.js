@@ -173,9 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     isiHasil("analyzer-res-ip", oktet.join("."));
     isiHasil("analyzer-res-class", infoKelas.nama);
-    isiHasil("analyzer-res-range", infoKelas.range);
     isiHasil("analyzer-res-network", networkAddress);
-    isiHasil("analyzer-res-netmask", infoKelas.subnetMask);
     isiHasil("analyzer-res-binary", ipKeBiner(oktet));
     analyzerResult.hidden = false; // Div Hidden tar jadi false / terlihat
   }

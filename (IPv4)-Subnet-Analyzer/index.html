@@ -24,39 +24,39 @@
     </nav>
 
     <div id="containerUtama">
- 
+
         <div id="kolomInput">
- 
+
             <!-- 1. Analyzer -->
             <div class="container" id="containerPertama">
                 <h2>1. Analyzer</h2>
                 <h3>Analyze IP Class</h3>
- 
+
                 <label for="analyzer-ip-address">IP Address:</label>
                 <input type="text" id="analyzer-ip-address" placeholder="Enter IP Address">
- 
+
                 <div>
                     <button type="button" id="btn-analyze">Analyze</button>
                     <button type="button" id="btn-clear-analyzer">Clear</button>
                 </div>
             </div>
- 
+
             <!-- 2. Konverter -->
             <div class="container" id="containerKedua">
                 <h2>2. Subnet Calculator</h2>
                 <h3>IPv4 Subnet Calculator</h3>
- 
+
                 <form id="calculator-form">
- 
+
                     <div>
                         <span>Network Class:</span>
                         <input type="radio" id="network-class-c" name="network-class" value="C" checked>
                         <label for="network-class-c">C</label>
                     </div>
- 
+
                     <div>
                         <label for="subnet-select">Subnet Prefix:</label>
- 
+
                         <select id="subnet-select" name="subnet">
                             <option value="32">255.255.255.255 /32</option>
                             <option value="31">255.255.255.254 /31</option>
@@ -68,31 +68,31 @@
                             <option value="25">255.255.255.128 /25</option>
                             <option value="24" selected>255.255.255.0 /24</option>
                         </select>
- 
+
                     </div>
- 
+
                     <div>
                         <label for="ip-address">IP Address:</label>
                         <input type="text" id="ip-address" name="ip_address" placeholder="192.168.1.10">
                     </div>
- 
+
                     <div>
                         <button type="button" id="btn-calculate">Calculate</button>
                         <button type="reset" id="btn-clear">Clear</button>
                     </div>
- 
+
                 </form>
- 
+
                 <p id="calculator-message" role="alert" hidden></p>
             </div>
- 
+
         </div>
- 
+
         <div id="kolomHasil">
- 
+
             <div class="result-box" id="resultAnalyzer" hidden>
                 <h2>Result Analyzer</h2>
- 
+
                 <table>
                     <tbody>
                         <tr>
@@ -104,16 +104,8 @@
                             <td id="analyzer-res-class">-</td>
                         </tr>
                         <tr>
-                            <td>IP Range:</td>
-                            <td id="analyzer-res-range">-</td>
-                        </tr>
-                        <tr>
                             <td>Network Address:</td>
                             <td id="analyzer-res-network">-</td>
-                        </tr>
-                        <tr>
-                            <td>Default Subnet Mask:</td>
-                            <td id="analyzer-res-netmask">-</td>
                         </tr>
                         <tr>
                             <td>Binary IP Address:</td>
@@ -122,57 +114,57 @@
                     </tbody>
                 </table>
             </div>
- 
+
             <div class="result-box" id="resultSubnet" hidden>
                 <h2>Result Subnet Kalkulator</h2>
- 
+
                 <table>
                     <tbody>
                         <tr>
                             <td>IP Address:</td>
                             <td id="res-ip">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>Network Address:</td>
                             <td id="res-network">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>Usable Host IP Range:</td>
                             <td id="res-range">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>Broadcast Address:</td>
                             <td id="res-broadcast">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>Total Number of Hosts:</td>
                             <td id="res-total-hosts">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>Number of Usable Hosts:</td>
                             <td id="res-usable-hosts">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>Subnet Mask:</td>
                             <td id="res-netmask">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>Binary Subnet Mask:</td>
                             <td id="res-binary-netmask">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>IP Class:</td>
                             <td id="res-class">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>CIDR Notation / Short:</td>
                             <td id="res-cidr">-</td>
@@ -182,7 +174,7 @@
                             <td>IP Type: </td>
                             <td id="res-type">-</td>
                         </tr>
- 
+
                         <tr>
                             <td>Binary ID:</td>
                             <td id="res-binary-id">-</td>
@@ -190,9 +182,9 @@
                     </tbody>
                 </table>
             </div>
- 
+
         </div>
- 
+
     </div>
 
     <!-- Teori -->
@@ -223,6 +215,16 @@
 
                 <li><strong>Kelas B = 128 - 191</strong></li>
                 <li><strong>Kelas C = 192 - 223</strong></li>
+                <li><strong>Kelas D = 224 - 239 (Kelas Multicast/Kelompok)</strong>
+                    <ul>
+                        <li>Kelas Multicast digunakan untuk mengirim informasi ke host register</li>
+                    </ul>
+                </li>
+                <li><strong>Kelas E = 240 - 255 (Kelas Eksperimen)</strong>
+                    <ul>
+                        <li>Kelas Eksperimen dipersiapkan untuk penggunaan IP Address dimana yang akan datang</li>
+                    </ul>
+                </li>
             </ul>
         </section>
 
