@@ -126,7 +126,7 @@ header {
 #ip-address {
     display: flex;
     height: 30px;
-    width: 97%;
+    width: 100%;
     background-color: var(--blackp);
     border-radius: 4px;
     color: var(--white);

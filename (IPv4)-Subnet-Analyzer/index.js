@@ -242,7 +242,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const kelas = kelasDipilih();
-    
+
+    if (kelas == "A" && (oktet[0] < 1 || oktet[0] > 126)) {
+      calculatorMessage.textContent =
+        "IP " +
+        oktet.join(".") +
+        " tidak dapat diproses karena berada di luar range Class A (1.0.0.0 - 126.255.255.255).";
+      calculatorMessage.hidden = false;
+      subnetResult.hidden = true;
+      return;
+    }
+
+    if (kelas == "B" && (oktet[0] < 128 || oktet[0] > 191)) {
+      calculatorMessage.textContent =
+        "IP " +
+        oktet.join(".") +
+        " tidak dapat diproses karena berada di luar range Class B (128.0.0.0 - 191.255.255.255).";
+      calculatorMessage.hidden = false;
+      subnetResult.hidden = true;
+      return;
+    }
+
     if (kelas == "C" && (oktet[0] < 192 || oktet[0] > 223)) {
       calculatorMessage.textContent =
         "IP " +
